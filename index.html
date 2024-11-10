@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header> 
+        
+        <div id="title">
+            <h1> RELATÓRIO CLIMA </h1>
+        </div>
+        
+        <div class="btnsalvar">
+            <button id="save1" > <img src="images/icon-save.png" alt="ícone de save" id="icon-save"> Salvar </button>
+        </div>
+
+    </header>
+
+    <main>
+        <section>
+            <div id="select-estado" class="box-select alinhamento">
+                
+                <h2> Estado: </h2>
+            
+               <select name="estados" id="estados" class="container-box" onchange="loadCity()">
+               </select>
+
+            </div>
+
+            <div id="select-cidade" class="box-select alinhamento">
+                
+                <h2> Cidade: </h2>
+                
+                <select name="cidades" id="cidades" class="container-box" onchange="fetchAirQuality()">
+                </select>
+
+            </div>
+
+            <div id="" class="alinhamento">
+                <h2> Período de Coleta: </h2>
+            
+                <input id="data" disabled type="text" name="data" class="container-box">
+            </div>
+        </section>
+    
+        
+        <div id="qualidade-ar">
+            <h2> Qualidade do Ar </h2>
+            
+            <div id="indicador-qualidade">
+                <p id="texto-indicador">  </p>
+            </div>
+
+            <div id="componentes-ar">
+                
+                <p class="indicadores-text"> <b>CO: </b> <span id="co"></span> </p>
+
+                <p class="indicadores-text"> <b>NO<sub>2</sub>:</b> <span id="no2"></span> </p>
+
+                <p class="indicadores-text"> <b>O<sub>3</sub>:</b> <span id="o3"></span> </p>
+
+                <p class="indicadores-text"> <b>PM<sub>2</sub>.5:</b> <span id="pm25"></span> </p>
+
+                <p class="indicadores-text"> <b>PM<sub>10</sub>:</b> <span id="pm10"></span> </p>
+                
+                <p class="indicadores-text"> <b>SO<sub>2</sub>:</b> <span id="so2"></span> </p>
+
+            </div>
+
+        </div>
+    </main>
+    
+    <hr>
+    <div>
+        <p> No dia <b id="text-data"> __________ </b> às <b id="text-hora"> __</b>:<b id="text-minuto">__</b> foram coletados dados climáticos de <b id="text-cidade"> _______</b> - <b id="text-estado">___</b> presentes no quadro abaixo. </p>
+    </div>
+    <hr>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th> Horário </th>
+                <th> Condição </th>
+                <th> Chuva (%) </th>
+                <th> Temperatura (Cº) </th>
+                <th> Sensação (Cº) </th>
+                <th> Umidade (%) </th>
+                <th> Vento (Kph) </th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+
+
+
+
+    <script src="js/estados.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/html2pdf.js"></script> 
+    <script src="js/cidades.js"></script>
+    <script src="js/qualidade_ar.js"></script>
+</body>
+</html>
